@@ -254,9 +254,9 @@
             <!-- egresos-app -->
             <article class="card project-card">
               <a
-                href="./assets/projects/egresos-app.webp"
+                href="#lb-egresos-app"
                 class="project-thumb"
-                data-lightbox="egresos-app"
+                aria-label="Abrir imagen egresos-app"
               >
                 <div class="project-media">
                   <img
@@ -300,9 +300,9 @@
             <!-- pet-game -->
             <article class="card project-card">
               <a
-                href="./assets/projects/ositodeemilia.webp"
+                href="#lb-pet-game"
                 class="project-thumb"
-                data-lightbox="pet-game"
+                aria-label="Abrir imagen pet-game"
               >
                 <div class="project-media">
                   <img
@@ -346,14 +346,14 @@
             <!-- ponchister -->
             <article class="card project-card">
               <a
-                href="./assets/projects/ponchister.webp"
+                href="#lb-ponchister"
                 class="project-thumb"
-                data-lightbox="ponchister"
+                aria-label="Abrir imagen Ponchister"
               >
                 <div class="project-media">
                   <img
                     src="./assets/projects/ponchister.webp"
-                    alt="ponchister screenshot"
+                    alt="Ponchister screenshot"
                     loading="lazy"
                     class="project-image"
                   />
@@ -447,6 +447,13 @@
         if (next === "light") document.documentElement.dataset.theme = "light";
         else document.documentElement.removeAttribute("data-theme");
         localStorage.setItem("theme", next);
+      });
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          const isLightboxOpen = location.hash.startsWith("#lb-");
+          if (isLightboxOpen) location.hash = "#projects";
+        }
       });
     </script>
     <!-- Lightbox (CSS :target) -->

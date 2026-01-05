@@ -515,3 +515,23 @@ strong {
 .dot {
   opacity: 0.6;
 }
+
+.project-card {
+  overflow: hidden;
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  margin-bottom: 14px;
+  border: 1px solid var(--border);
+  background: #000;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}

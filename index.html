@@ -558,6 +558,7 @@
     </main>
 
     <script>
+      document.addEventListener("DOMContentLoaded", () => {
       const translations = {
         es: {
           "skip-link": "Saltar al contenido",
@@ -928,6 +929,7 @@
           // If click is on backdrop area, close
           if (!clickedInDialog) dlg.close();
         });
+      });
       });
     </script>
     <dialog

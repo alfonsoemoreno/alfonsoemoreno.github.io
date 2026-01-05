@@ -1,9 +1,378 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Alfonso Moreno</title>
-    </head>
-    <body>
-        
-    </body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Alfonso Moreno · Software Engineer</title>
+    <meta
+      name="description"
+      content="Alfonso Moreno — Software Engineer. Arquitectura backend, datos/performance, multi-tenant y sincronización offline-first."
+    />
+    <meta name="theme-color" content="#0b0f14" />
+    <meta property="og:title" content="Alfonso Moreno · Software Engineer" />
+    <meta
+      property="og:description"
+      content="Arquitectura backend, datos/performance, multi-tenant y sincronización offline-first."
+    />
+    <meta property="og:type" content="website" />
+
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="./styles.css" />
+
+    <script>
+      // Toggle theme (dark/light) with persistence
+      (function () {
+        const stored = localStorage.getItem("theme");
+        if (stored === "light")
+          document.documentElement.dataset.theme = "light";
+      })();
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Saltar al contenido</a>
+
+    <header class="header">
+      <div class="container header__inner">
+        <a class="brand" href="#top" aria-label="Inicio">
+          <span class="brand__dot"></span>
+          <span class="brand__text">Alfonso Moreno</span>
+        </a>
+
+        <nav class="nav" aria-label="Navegación principal">
+          <a href="#about">Sobre mí</a>
+          <a href="#work">Lo que hago</a>
+          <a href="#projects">Proyectos</a>
+          <a href="#contact">Contacto</a>
+          <button
+            id="themeBtn"
+            class="btn btn--ghost"
+            type="button"
+            aria-label="Cambiar tema"
+          >
+            <span class="btn__icon" aria-hidden="true">◐</span>
+            <span class="btn__text">Tema</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="top" class="hero">
+        <div class="container">
+          <div class="hero__grid">
+            <div class="hero__content">
+              <p class="eyebrow">
+                Software Engineer · Arquitectura Backend · Sistemas Distribuidos
+              </p>
+              <h1 class="hero__title">
+                Construyo software real: escalable, mantenible y rápido.
+              </h1>
+              <p class="hero__subtitle">
+                Foco en <strong>datos</strong>, <strong>performance</strong>,
+                <strong>multi-tenant</strong> y <strong>offline-first</strong>,
+                con decisiones técnicas que resisten el tiempo.
+              </p>
+
+              <div class="hero__cta">
+                <a
+                  class="btn btn--primary"
+                  href="https://github.com/alfonsoemoreno"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  GitHub
+                </a>
+                <a
+                  class="btn btn--secondary"
+                  href="https://www.linkedin.com/in/alfonsoemoreno/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  LinkedIn
+                </a>
+                <a class="btn btn--ghost" href="mailto:alfonso.moreno@me.com">
+                  Email
+                </a>
+              </div>
+
+              <div class="hero__meta">
+                <div class="pill">Chile (remoto)</div>
+                <div class="pill">Backend · Data · DevOps</div>
+                <div class="pill">Next.js · Node · PostgreSQL</div>
+              </div>
+            </div>
+
+            <aside class="hero__card" aria-label="Resumen">
+              <div class="card">
+                <h2 class="card__title">Resumen</h2>
+                <p class="card__text">
+                  Me especializo en modelado de datos, optimización de consultas
+                  y arquitectura de servicios. Me gusta la ingeniería
+                  pragmática: claridad, documentación y ejecución sólida.
+                </p>
+
+                <div class="card__links" role="list">
+                  <a
+                    role="listitem"
+                    href="https://github.com/alfonsoemoreno"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    github.com/alfonsoemoreno
+                  </a>
+                  <a
+                    role="listitem"
+                    href="https://www.linkedin.com/in/alfonsoemoreno/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    linkedin.com/in/alfonsoemoreno
+                  </a>
+                  <a role="listitem" href="mailto:alfonso.moreno@me.com">
+                    alfonso.moreno@me.com
+                  </a>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container">
+          <div class="section__head">
+            <h2>Sobre mí</h2>
+            <p>
+              Ingeniero de software con experiencia construyendo sistemas en
+              producción, desde monolitos hasta microservicios. Especializado en
+              <strong>multi-tenant</strong>,
+              <strong>búsqueda eficiente</strong>,
+              <strong>offline-first</strong> y <strong>performance</strong>.
+            </p>
+          </div>
+
+          <div class="grid grid--2">
+            <div class="card">
+              <h3 class="card__title">Cómo trabajo</h3>
+              <p class="card__text">
+                Prefiero sistemas entendibles a soluciones “mágicas”. Diseño con
+                intención: dominio claro, contratos estables, índices correctos,
+                y despliegues repetibles. La IA es una herramienta, no un
+                reemplazo del criterio.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3 class="card__title">Qué busco</h3>
+              <p class="card__text">
+                Proyectos donde la arquitectura y los datos importen: productos
+                con trazabilidad, performance real, sincronización, o equipos
+                que necesiten orden técnico para escalar sin romperse.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="work" class="section">
+        <div class="container">
+          <div class="section__head">
+            <h2>Lo que hago</h2>
+            <p>
+              Áreas donde aporto más valor: decisiones técnicas, datos y
+              ejecución en producción.
+            </p>
+          </div>
+
+          <div class="grid grid--4">
+            <div class="card">
+              <h3 class="card__title">Arquitectura & Backend</h3>
+              <p class="card__text">
+                APIs, microservicios, gateways, autenticación, diseño orientado
+                a dominio y decisiones que escalan.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3 class="card__title">Datos & Performance</h3>
+              <p class="card__text">
+                PostgreSQL/MariaDB/SQLite, índices, optimización de queries,
+                búsqueda full-text y migraciones seguras.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3 class="card__title">Frontend aplicado</h3>
+              <p class="card__text">
+                Next.js/React para productos reales: SSR/estático, UI
+                pragmática, herramientas internas y flujos claros.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3 class="card__title">DevOps pragmático</h3>
+              <p class="card__text">
+                Docker, Kubernetes, PM2, jobs/colas y despliegues simples con
+                observabilidad suficiente.
+              </p>
+            </div>
+          </div>
+
+          <div class="stack">
+            <h3 class="stack__title">Stack habitual</h3>
+            <div class="stack__chips">
+              <span class="chip">Node.js</span>
+              <span class="chip">NestJS</span>
+              <span class="chip">SailsJS</span>
+              <span class="chip">Next.js</span>
+              <span class="chip">React</span>
+              <span class="chip">PostgreSQL</span>
+              <span class="chip">MariaDB</span>
+              <span class="chip">SQLite</span>
+              <span class="chip">RxDB</span>
+              <span class="chip">Redis</span>
+              <span class="chip">Docker</span>
+              <span class="chip">Kubernetes</span>
+              <span class="chip">PM2</span>
+              <span class="chip">TypeORM</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="container">
+          <div class="section__head">
+            <h2>Proyectos destacados</h2>
+            <p>
+              Selección de líneas de trabajo representativas (arquitectura,
+              datos y UX aplicada).
+            </p>
+          </div>
+
+          <div class="grid grid--3">
+            <article class="card">
+              <h3 class="card__title">Bitácora · Plataforma modular</h3>
+              <p class="card__text">
+                Ecosistema con múltiples servicios, trazabilidad y foco en
+                performance real. Trabajo fuerte en modelado, búsqueda, y
+                evolución segura en producción.
+              </p>
+              <div class="card__footer">
+                <span class="tag">microservicios</span>
+                <span class="tag">multi-tenant</span>
+                <span class="tag">PostgreSQL/MariaDB</span>
+              </div>
+            </article>
+
+            <article class="card">
+              <h3 class="card__title">Offline-first & sincronización</h3>
+              <p class="card__text">
+                Diseño y pruebas de sincronización bidireccional: base local
+                (SQLite/RxDB), resolución de conflictos, colas y consistencia
+                eventual con backend.
+              </p>
+              <div class="card__footer">
+                <span class="tag">RxDB</span>
+                <span class="tag">SQLite</span>
+                <span class="tag">sync</span>
+              </div>
+            </article>
+
+            <article class="card">
+              <h3 class="card__title">
+                Apps interactivas (música & experiencias)
+              </h3>
+              <p class="card__text">
+                Aplicaciones con flujos de juego/UX, integración con servicios
+                externos y foco en experiencia fluida en móvil y escritorio.
+              </p>
+              <div class="card__footer">
+                <span class="tag">Next.js</span>
+                <span class="tag">UX</span>
+                <span class="tag">integraciones</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="callout">
+            <div class="callout__content">
+              <h3 class="callout__title">¿Quieres ver repos?</h3>
+              <p class="callout__text">
+                Mi trabajo público está en GitHub. Si necesitas un caso de
+                estudio o una demo específica, lo preparo.
+              </p>
+            </div>
+            <a
+              class="btn btn--primary"
+              href="https://github.com/alfonsoemoreno"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Ver GitHub
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section section--tight">
+        <div class="container">
+          <div class="contact">
+            <div>
+              <h2>Contacto</h2>
+              <p>
+                Si tienes un proyecto que necesita orden, performance y una
+                arquitectura sana, feliz de ayudar.
+              </p>
+            </div>
+
+            <div class="contact__actions">
+              <a class="btn btn--primary" href="mailto:alfonso.moreno@me.com"
+                >Escríbeme</a
+              >
+              <a
+                class="btn btn--secondary"
+                href="https://www.linkedin.com/in/alfonsoemoreno/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn
+              </a>
+              <a
+                class="btn btn--ghost"
+                href="https://github.com/alfonsoemoreno"
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub
+              </a>
+            </div>
+          </div>
+
+          <footer class="footer">
+            <p>
+              © <span id="year"></span> Alfonso Moreno · Hecho con HTML/CSS —
+              sin frameworks.
+            </p>
+          </footer>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Theme toggle
+      const btn = document.getElementById("themeBtn");
+      btn.addEventListener("click", () => {
+        const current = document.documentElement.dataset.theme;
+        const next = current === "light" ? "dark" : "light";
+        if (next === "light") document.documentElement.dataset.theme = "light";
+        else document.documentElement.removeAttribute("data-theme");
+        localStorage.setItem("theme", next);
+      });
+    </script>
+  </body>
 </html>

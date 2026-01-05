@@ -146,6 +146,82 @@ strong {
   background: var(--surface);
 }
 
+.nav-toggle {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.nav-toggle__icon {
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  position: relative;
+  display: inline-block;
+}
+
+.nav-toggle__icon::before,
+.nav-toggle__icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  transition: transform 0.2s ease, top 0.2s ease;
+}
+
+.nav-toggle__icon::before {
+  top: -6px;
+}
+
+.nav-toggle__icon::after {
+  top: 6px;
+}
+
+.nav-toggle.is-active .nav-toggle__icon {
+  background: transparent;
+}
+
+.nav-toggle.is-active .nav-toggle__icon::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.nav-toggle.is-active .nav-toggle__icon::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+.nav--open + .nav-backdrop,
+.nav-backdrop.is-active {
+  display: block;
+}
+
+.nav-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 30;
+}
+
+.nav--open {
+  display: flex;
+}
+
+body.nav-open {
+  overflow: hidden;
+}
+
 .lang-select {
   border-radius: 12px;
   border: 1px solid var(--border);
@@ -416,6 +492,34 @@ strong {
 @media (max-width: 980px) {
   .hero__grid {
     grid-template-columns: 1fr;
+  }
+  .nav-toggle {
+    display: inline-flex;
+  }
+  .nav {
+    position: fixed;
+    top: 66px;
+    right: 14px;
+    left: 14px;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--bg);
+    box-shadow: var(--shadow);
+    z-index: 40;
+  }
+  .nav a,
+  .nav .btn,
+  .nav .lang-select {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .nav--open {
+    display: flex;
   }
   .grid--4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));

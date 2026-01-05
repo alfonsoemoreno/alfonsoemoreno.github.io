@@ -93,10 +93,24 @@
           <span>Alfonso Moreno</span>
         </a>
 
+        <button
+          id="navToggle"
+          class="nav-toggle"
+          type="button"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="primaryNav"
+          data-i18n="nav-toggle-label"
+        >
+          <span class="nav-toggle__icon" aria-hidden="true"></span>
+          <span data-i18n="nav-toggle-text">Menú</span>
+        </button>
+
         <nav
           class="nav"
           aria-label="Navegación principal"
           data-i18n="nav-label"
+          id="primaryNav"
         >
           <a href="#about" data-i18n="nav-about">Sobre mí</a>
           <a href="#work" data-i18n="nav-work">Lo que hago</a>
@@ -122,6 +136,7 @@
             <span data-i18n="theme-text">Tema</span>
           </button>
         </nav>
+        <div id="navBackdrop" class="nav-backdrop" hidden></div>
       </div>
     </header>
 
@@ -552,6 +567,10 @@
           "nav-work": "Lo que hago",
           "nav-projects": "Proyectos",
           "nav-contact": "Contacto",
+          "nav-toggle-label": { attrs: { "aria-label": "Abrir menú" } },
+          "nav-toggle-text": "Menú",
+          "nav-toggle-open": "Abrir menú",
+          "nav-toggle-close": "Cerrar menú",
           "lang-select-label": { attrs: { "aria-label": "Seleccionar idioma" } },
           "theme-btn": { attrs: { "aria-label": "Cambiar tema" } },
           "theme-text": "Tema",
@@ -653,6 +672,10 @@
           "nav-work": "What I do",
           "nav-projects": "Projects",
           "nav-contact": "Contact",
+          "nav-toggle-label": { attrs: { "aria-label": "Open menu" } },
+          "nav-toggle-text": "Menu",
+          "nav-toggle-open": "Open menu",
+          "nav-toggle-close": "Close menu",
           "lang-select-label": { attrs: { "aria-label": "Choose language" } },
           "theme-btn": { attrs: { "aria-label": "Toggle theme" } },
           "theme-text": "Theme",
@@ -751,14 +774,53 @@
 
       const supportedLangs = ["es", "en"];
       const langSelect = document.getElementById("langSelect");
+      const navToggle = document.getElementById("navToggle");
+      const nav = document.getElementById("primaryNav");
+      const navBackdrop = document.getElementById("navBackdrop");
 
       const setYear = () => {
         const yearEl = document.getElementById("year");
         if (yearEl) yearEl.textContent = new Date().getFullYear();
       };
 
+      const getDict = (lang) => translations[lang] || translations.es;
+
+      const updateNavToggleLabel = (open, lang) => {
+        if (!navToggle) return;
+        const dict = getDict(lang);
+        const labelKey = open ? "nav-toggle-close" : "nav-toggle-open";
+        const labelEntry = dict[labelKey] || dict["nav-toggle-label"];
+        const label =
+          typeof labelEntry === "string"
+            ? labelEntry
+            : labelEntry?.attrs?.["aria-label"] || "";
+        navToggle.setAttribute("aria-label", label);
+        const textEntry = dict["nav-toggle-text"];
+        const text =
+          typeof textEntry === "string"
+            ? textEntry
+            : textEntry?.text || navToggle.textContent;
+        const textEl = navToggle.querySelector(
+          "[data-i18n='nav-toggle-text']"
+        );
+        if (textEl) textEl.textContent = text;
+      };
+
+      const setNavState = (open, lang) => {
+        const activeLang = lang || document.documentElement.lang || "es";
+        if (nav) nav.classList.toggle("nav--open", open);
+        if (navBackdrop) {
+          navBackdrop.hidden = !open;
+          navBackdrop.classList.toggle("is-active", open);
+        }
+        document.body.classList.toggle("nav-open", open);
+        if (navToggle) navToggle.setAttribute("aria-expanded", open);
+        if (navToggle) navToggle.classList.toggle("is-active", open);
+        updateNavToggleLabel(open, activeLang);
+      };
+
       const applyTranslations = (lang) => {
-        const dict = translations[lang] || translations.es;
+        const dict = getDict(lang);
         document.documentElement.lang = lang;
 
         document.querySelectorAll("[data-i18n]").forEach((el) => {
@@ -779,6 +841,7 @@
         });
 
         setYear();
+        setNavState(false, lang);
       };
 
       const storedLang = localStorage.getItem("lang");
@@ -797,6 +860,28 @@
           localStorage.setItem("lang", next);
         });
       }
+
+      if (navToggle && nav) {
+        navToggle.addEventListener("click", () => {
+          const isOpen = nav.classList.contains("nav--open");
+          setNavState(!isOpen);
+        });
+
+        nav.querySelectorAll("a, button, select").forEach((item) => {
+          item.addEventListener("click", () => setNavState(false));
+        });
+      }
+
+      if (navBackdrop) {
+        navBackdrop.addEventListener("click", () => setNavState(false));
+      }
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          const open = nav?.classList.contains("nav--open");
+          if (open) setNavState(false);
+        }
+      });
 
       // Theme toggle
       const themeBtn = document.getElementById("themeBtn");

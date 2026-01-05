@@ -253,11 +253,20 @@
           <div class="grid grid--3">
             <!-- egresos-app -->
             <article class="card project-card">
-              <img
-                src="./assets/projects/egresos-app.webp"
-                alt="egresos-app screenshot"
-                class="project-image"
-              />
+              <a
+                href="./assets/projects/egresos-app.webp"
+                class="project-thumb"
+                data-lightbox="egresos-app"
+              >
+                <div class="project-media">
+                  <img
+                    src="./assets/projects/egresos-app.webp"
+                    alt="egresos-app screenshot"
+                    loading="lazy"
+                    class="project-image"
+                  />
+                </div>
+              </a>
 
               <h3 class="card__title">egresos-app</h3>
               <p class="card__text">
@@ -290,11 +299,20 @@
 
             <!-- pet-game -->
             <article class="card project-card">
-              <img
-                src="./assets/projects/pet-game.webp"
-                alt="pet-game screenshot"
-                class="project-image"
-              />
+              <a
+                href="./assets/projects/ositodeemilia.webp"
+                class="project-thumb"
+                data-lightbox="pet-game"
+              >
+                <div class="project-media">
+                  <img
+                    src="./assets/projects/ositodeemilia.webp"
+                    alt="pet-game screenshot"
+                    loading="lazy"
+                    class="project-image"
+                  />
+                </div>
+              </a>
 
               <h3 class="card__title">pet-game</h3>
               <p class="card__text">
@@ -327,11 +345,20 @@
 
             <!-- ponchister -->
             <article class="card project-card">
-              <img
-                src="./assets/projects/ponchister.webp"
-                alt="Ponchister screenshot"
-                class="project-image"
-              />
+              <a
+                href="./assets/projects/ponchister.webp"
+                class="project-thumb"
+                data-lightbox="ponchister"
+              >
+                <div class="project-media">
+                  <img
+                    src="./assets/projects/ponchister.webp"
+                    alt="ponchister screenshot"
+                    loading="lazy"
+                    class="project-image"
+                  />
+                </div>
+              </a>
 
               <h3 class="card__title">Ponchister</h3>
               <p class="card__text">
@@ -422,5 +449,56 @@
         localStorage.setItem("theme", next);
       });
     </script>
+    <!-- Lightbox (CSS :target) -->
+    <div
+      id="lb-egresos-app"
+      class="lightbox"
+      aria-label="Vista ampliada egresos-app"
+      role="dialog"
+      aria-modal="true"
+    >
+      <a class="lightbox__backdrop" href="#projects" aria-label="Cerrar"></a>
+      <div class="lightbox__content" role="document">
+        <a class="lightbox__close" href="#projects" aria-label="Cerrar">✕</a>
+        <img
+          src="./assets/projects/egresos-app.webp"
+          alt="egresos-app screenshot"
+        />
+      </div>
+    </div>
+
+    <div
+      id="lb-pet-game"
+      class="lightbox"
+      aria-label="Vista ampliada pet-game"
+      role="dialog"
+      aria-modal="true"
+    >
+      <a class="lightbox__backdrop" href="#projects" aria-label="Cerrar"></a>
+      <div class="lightbox__content" role="document">
+        <a class="lightbox__close" href="#projects" aria-label="Cerrar">✕</a>
+        <img
+          src="./assets/projects/ositodeemilia.webp"
+          alt="pet-game screenshot"
+        />
+      </div>
+    </div>
+
+    <div
+      id="lb-ponchister"
+      class="lightbox"
+      aria-label="Vista ampliada ponchister"
+      role="dialog"
+      aria-modal="true"
+    >
+      <a class="lightbox__backdrop" href="#projects" aria-label="Cerrar"></a>
+      <div class="lightbox__content" role="document">
+        <a class="lightbox__close" href="#projects" aria-label="Cerrar">✕</a>
+        <img
+          src="./assets/projects/ponchister.webp"
+          alt="Ponchister screenshot"
+        />
+      </div>
+    </div>
   </body>
 </html>

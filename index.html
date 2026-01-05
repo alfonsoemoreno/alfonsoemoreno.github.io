@@ -30,28 +30,47 @@
   </head>
 
   <body>
-    <a class="skip-link" href="#main">Saltar al contenido</a>
+    <a class="skip-link" href="#main" data-i18n="skip-link">Saltar al contenido</a>
 
     <header class="header">
       <div class="container header__inner">
-        <a class="brand" href="#top" aria-label="Inicio">
+        <a
+          class="brand"
+          href="#top"
+          aria-label="Inicio"
+          data-i18n="brand-label"
+        >
           <span class="brand__dot"></span>
           <span>Alfonso Moreno</span>
         </a>
 
-        <nav class="nav" aria-label="Navegación principal">
-          <a href="#about">Sobre mí</a>
-          <a href="#work">Lo que hago</a>
-          <a href="#projects">Proyectos</a>
-          <a href="#contact">Contacto</a>
+        <nav
+          class="nav"
+          aria-label="Navegación principal"
+          data-i18n="nav-label"
+        >
+          <a href="#about" data-i18n="nav-about">Sobre mí</a>
+          <a href="#work" data-i18n="nav-work">Lo que hago</a>
+          <a href="#projects" data-i18n="nav-projects">Proyectos</a>
+          <a href="#contact" data-i18n="nav-contact">Contacto</a>
+          <select
+            id="langSelect"
+            class="lang-select"
+            aria-label="Seleccionar idioma"
+            data-i18n="lang-select-label"
+          >
+            <option value="es">ES</option>
+            <option value="en">EN</option>
+          </select>
           <button
             id="themeBtn"
             class="btn btn--ghost"
             type="button"
             aria-label="Cambiar tema"
+            data-i18n="theme-btn"
           >
             <span class="btn__icon" aria-hidden="true">◐</span>
-            <span>Tema</span>
+            <span data-i18n="theme-text">Tema</span>
           </button>
         </nav>
       </div>
@@ -62,13 +81,13 @@
         <div class="container">
           <div class="hero__grid">
             <div>
-              <p class="eyebrow">
+              <p class="eyebrow" data-i18n="hero-eyebrow">
                 Software Engineer · Arquitectura Backend · Sistemas Distribuidos
               </p>
-              <h1 class="hero__title">
+              <h1 class="hero__title" data-i18n="hero-title">
                 Construyo software real: escalable, mantenible y rápido.
               </h1>
-              <p class="hero__subtitle">
+              <p class="hero__subtitle" data-i18n="hero-subtitle">
                 Foco en <strong>datos</strong>, <strong>performance</strong>,
                 <strong>multi-tenant</strong> y <strong>offline-first</strong>,
                 con decisiones técnicas que resisten el tiempo.
@@ -80,6 +99,7 @@
                   href="https://github.com/alfonsoemoreno"
                   target="_blank"
                   rel="noreferrer"
+                  data-i18n="cta-github"
                 >
                   GitHub
                 </a>
@@ -88,25 +108,34 @@
                   href="https://www.linkedin.com/in/alfonsoemoreno/"
                   target="_blank"
                   rel="noreferrer"
+                  data-i18n="cta-linkedin"
                 >
                   LinkedIn
                 </a>
-                <a class="btn btn--ghost" href="mailto:alfonso.moreno@me.com">
-                  Email
+                <a
+                  class="btn btn--ghost"
+                  href="mailto:alfonso.moreno@me.com"
+                  data-i18n="cta-email"
+                >
+                  Correo
                 </a>
               </div>
 
               <div class="hero__meta">
-                <div class="pill">Chile (remoto)</div>
-                <div class="pill">Backend · Data · DevOps</div>
-                <div class="pill">Next.js · Node · PostgreSQL</div>
+                <div class="pill" data-i18n="pill-location">Chile (remoto)</div>
+                <div class="pill" data-i18n="pill-role">
+                  Backend · Data · DevOps
+                </div>
+                <div class="pill" data-i18n="pill-stack">
+                  Next.js · Node · PostgreSQL
+                </div>
               </div>
             </div>
 
-            <aside aria-label="Resumen">
+            <aside aria-label="Resumen" data-i18n="summary-label">
               <div class="card">
-                <h2 class="card__title">Resumen</h2>
-                <p class="card__text">
+                <h2 class="card__title" data-i18n="summary-title">Resumen</h2>
+                <p class="card__text" data-i18n="summary-text">
                   Me especializo en modelado de datos, optimización de consultas
                   y arquitectura de servicios. Me gusta la ingeniería
                   pragmática: claridad, documentación y ejecución sólida.
@@ -142,8 +171,8 @@
       <section id="about" class="section">
         <div class="container">
           <div class="section__head">
-            <h2>Sobre mí</h2>
-            <p>
+            <h2 data-i18n="about-title">Sobre mí</h2>
+            <p data-i18n="about-text">
               Ingeniero de software con experiencia construyendo sistemas en
               producción, desde monolitos hasta microservicios. Especializado en
               <strong>multi-tenant</strong>,
@@ -154,8 +183,10 @@
 
           <div class="grid grid--2">
             <div class="card">
-              <h3 class="card__title">Cómo trabajo</h3>
-              <p class="card__text">
+              <h3 class="card__title" data-i18n="workhow-title">
+                Cómo trabajo
+              </h3>
+              <p class="card__text" data-i18n="workhow-text">
                 Prefiero sistemas entendibles a soluciones “mágicas”. Diseño con
                 intención: dominio claro, contratos estables, índices correctos,
                 y despliegues repetibles. La IA es una herramienta, no un
@@ -164,8 +195,8 @@
             </div>
 
             <div class="card">
-              <h3 class="card__title">Qué busco</h3>
-              <p class="card__text">
+              <h3 class="card__title" data-i18n="workseek-title">Qué busco</h3>
+              <p class="card__text" data-i18n="workseek-text">
                 Proyectos donde la arquitectura y los datos importen: productos
                 con trazabilidad, performance real, sincronización, o equipos
                 que necesiten orden técnico para escalar sin romperse.
@@ -178,8 +209,8 @@
       <section id="work" class="section">
         <div class="container">
           <div class="section__head">
-            <h2>Lo que hago</h2>
-            <p>
+            <h2 data-i18n="work-title">Lo que hago</h2>
+            <p data-i18n="work-text">
               Áreas donde aporto más valor: decisiones técnicas, datos y
               ejecución en producción.
             </p>
@@ -187,32 +218,40 @@
 
           <div class="grid grid--4">
             <div class="card">
-              <h3 class="card__title">Arquitectura & Backend</h3>
-              <p class="card__text">
+              <h3 class="card__title" data-i18n="card-arch-title">
+                Arquitectura & Backend
+              </h3>
+              <p class="card__text" data-i18n="card-arch-text">
                 APIs, microservicios, gateways, autenticación, diseño orientado
                 a dominio y decisiones que escalan.
               </p>
             </div>
 
             <div class="card">
-              <h3 class="card__title">Datos & Performance</h3>
-              <p class="card__text">
+              <h3 class="card__title" data-i18n="card-data-title">
+                Datos & Performance
+              </h3>
+              <p class="card__text" data-i18n="card-data-text">
                 PostgreSQL/MariaDB/SQLite, índices, optimización de queries,
                 búsqueda full-text y migraciones seguras.
               </p>
             </div>
 
             <div class="card">
-              <h3 class="card__title">Frontend aplicado</h3>
-              <p class="card__text">
+              <h3 class="card__title" data-i18n="card-frontend-title">
+                Frontend aplicado
+              </h3>
+              <p class="card__text" data-i18n="card-frontend-text">
                 Next.js/React para productos reales: SSR/estático, UI
                 pragmática, herramientas internas y flujos claros.
               </p>
             </div>
 
             <div class="card">
-              <h3 class="card__title">DevOps pragmático</h3>
-              <p class="card__text">
+              <h3 class="card__title" data-i18n="card-devops-title">
+                DevOps pragmático
+              </h3>
+              <p class="card__text" data-i18n="card-devops-text">
                 Docker, Kubernetes, PM2, jobs/colas y despliegues simples con
                 observabilidad suficiente.
               </p>
@@ -220,7 +259,7 @@
           </div>
 
           <div class="stack">
-            <h3 class="stack__title">Stack habitual</h3>
+            <h3 class="stack__title" data-i18n="stack-title">Stack habitual</h3>
             <div class="stack__chips">
               <span class="chip">Node.js</span>
               <span class="chip">NestJS</span>
@@ -243,8 +282,8 @@
       <section id="projects" class="section">
         <div class="container">
           <div class="section__head">
-            <h2>Proyectos personales</h2>
-            <p>
+            <h2 data-i18n="projects-title">Proyectos personales</h2>
+            <p data-i18n="projects-text">
               Proyectos propios con demo en producción, enfocados en experiencia
               de usuario, estructura de datos y ejecución real.
             </p>
@@ -258,6 +297,7 @@
                 type="button"
                 data-open="dlg-egresos-app"
                 aria-label="Abrir imagen egresos-app"
+                data-i18n="aria-egresos-open"
               >
                 <div class="project-media">
                   <img
@@ -269,16 +309,18 @@
                 </div>
               </button>
 
-              <h3 class="card__title">egresos-app</h3>
-              <p class="card__text">
+              <h3 class="card__title" data-i18n="egresos-title">
+                egresos-app
+              </h3>
+              <p class="card__text" data-i18n="egresos-text">
                 Aplicación para control de egresos personales, enfocada en
                 claridad visual, orden y estructura de datos.
               </p>
 
               <div class="card__footer">
-                <span class="tag">finanzas</span>
-                <span class="tag">frontend</span>
-                <span class="tag">datos</span>
+                <span class="tag" data-i18n="tag-finanzas">finanzas</span>
+                <span class="tag" data-i18n="tag-frontend">frontend</span>
+                <span class="tag" data-i18n="tag-datos">datos</span>
               </div>
 
               <p class="project-links">
@@ -286,6 +328,7 @@
                   href="https://egresos-app.vercel.app"
                   target="_blank"
                   rel="noreferrer"
+                  data-i18n="project-demo"
                   >Demo →</a
                 >
                 <span class="dot">•</span>
@@ -293,6 +336,7 @@
                   href="https://github.com/alfonsoemoreno/egresos-app"
                   target="_blank"
                   rel="noreferrer"
+                  data-i18n="project-repo"
                   >Repo →</a
                 >
               </p>
@@ -305,6 +349,7 @@
                 type="button"
                 data-open="dlg-pet-game"
                 aria-label="Abrir imagen pet-game"
+                data-i18n="aria-pet-open"
               >
                 <div class="project-media">
                   <img
@@ -316,16 +361,16 @@
                 </div>
               </button>
 
-              <h3 class="card__title">pet-game</h3>
-              <p class="card__text">
+              <h3 class="card__title" data-i18n="pet-title">pet-game</h3>
+              <p class="card__text" data-i18n="pet-text">
                 Juego experimental con mecánicas simples y progresión.
                 Laboratorio de lógica de estado y feedback visual.
               </p>
 
               <div class="card__footer">
-                <span class="tag">game</span>
-                <span class="tag">estado</span>
-                <span class="tag">UX</span>
+                <span class="tag" data-i18n="tag-game">game</span>
+                <span class="tag" data-i18n="tag-estado">estado</span>
+                <span class="tag" data-i18n="tag-ux">UX</span>
               </div>
 
               <p class="project-links">
@@ -333,6 +378,7 @@
                   href="https://ositodeemilia.vercel.app"
                   target="_blank"
                   rel="noreferrer"
+                  data-i18n="project-demo"
                   >Demo →</a
                 >
                 <span class="dot">•</span>
@@ -340,6 +386,7 @@
                   href="https://github.com/alfonsoemoreno/pet-game"
                   target="_blank"
                   rel="noreferrer"
+                  data-i18n="project-repo"
                   >Repo →</a
                 >
               </p>
@@ -352,6 +399,7 @@
                 type="button"
                 data-open="dlg-ponchister"
                 aria-label="Abrir imagen Ponchister"
+                data-i18n="aria-ponch-open"
               >
                 <div class="project-media">
                   <img
@@ -363,15 +411,15 @@
                 </div>
               </button>
 
-              <h3 class="card__title">Ponchister</h3>
-              <p class="card__text">
+              <h3 class="card__title" data-i18n="ponch-title">Ponchister</h3>
+              <p class="card__text" data-i18n="ponch-text">
                 Experiencia interactiva inspirada en juegos musicales. Enfoque
                 en flujo, sincronización y experiencia multiplataforma.
               </p>
 
               <div class="card__footer">
-                <span class="tag">música</span>
-                <span class="tag">interactivo</span>
+                <span class="tag" data-i18n="tag-musica">música</span>
+                <span class="tag" data-i18n="tag-interactivo">interactivo</span>
                 <span class="tag">Next.js</span>
               </div>
 
@@ -380,6 +428,7 @@
                   href="https://ponchistergame.vercel.app"
                   target="_blank"
                   rel="noreferrer"
+                  data-i18n="project-demo"
                   >Demo →</a
                 >
                 <span class="dot">•</span>
@@ -387,6 +436,7 @@
                   href="https://github.com/alfonsoemoreno/ponchister"
                   target="_blank"
                   rel="noreferrer"
+                  data-i18n="project-repo"
                   >Repo →</a
                 >
               </p>
@@ -398,15 +448,18 @@
         <div class="container">
           <div class="contact">
             <div>
-              <h2>Contacto</h2>
-              <p>
+              <h2 data-i18n="contact-title">Contacto</h2>
+              <p data-i18n="contact-text">
                 Si tienes un proyecto que necesita orden, performance y una
                 arquitectura sana, feliz de ayudar.
               </p>
             </div>
 
             <div class="contact__actions">
-              <a class="btn btn--primary" href="mailto:alfonso.moreno@me.com"
+              <a
+                class="btn btn--primary"
+                href="mailto:alfonso.moreno@me.com"
+                data-i18n="contact-email"
                 >Escríbeme</a
               >
               <a
@@ -414,6 +467,7 @@
                 href="https://www.linkedin.com/in/alfonsoemoreno/"
                 target="_blank"
                 rel="noreferrer"
+                data-i18n="contact-linkedin"
               >
                 LinkedIn
               </a>
@@ -422,6 +476,7 @@
                 href="https://github.com/alfonsoemoreno"
                 target="_blank"
                 rel="noreferrer"
+                data-i18n="contact-github"
               >
                 GitHub
               </a>
@@ -429,7 +484,7 @@
           </div>
 
           <footer class="footer">
-            <p>
+            <p data-i18n="footer-text">
               © <span id="year"></span> Alfonso Moreno · Hecho con HTML/CSS —
               sin frameworks.
             </p>
@@ -439,12 +494,264 @@
     </main>
 
     <script>
-      // Year
-      document.getElementById("year").textContent = new Date().getFullYear();
+      const translations = {
+        es: {
+          "skip-link": "Saltar al contenido",
+          "brand-label": { attrs: { "aria-label": "Inicio" } },
+          "nav-label": { attrs: { "aria-label": "Navegación principal" } },
+          "nav-about": "Sobre mí",
+          "nav-work": "Lo que hago",
+          "nav-projects": "Proyectos",
+          "nav-contact": "Contacto",
+          "lang-select-label": { attrs: { "aria-label": "Seleccionar idioma" } },
+          "theme-btn": { attrs: { "aria-label": "Cambiar tema" } },
+          "theme-text": "Tema",
+          "hero-eyebrow":
+            "Software Engineer · Arquitectura Backend · Sistemas Distribuidos",
+          "hero-title": "Construyo software real: escalable, mantenible y rápido.",
+          "hero-subtitle":
+            "Foco en <strong>datos</strong>, <strong>performance</strong>, <strong>multi-tenant</strong> y <strong>offline-first</strong>, con decisiones técnicas que resisten el tiempo.",
+          "cta-github": "GitHub",
+          "cta-linkedin": "LinkedIn",
+          "cta-email": "Correo",
+          "pill-location": "Chile (remoto)",
+          "pill-role": "Backend · Data · DevOps",
+          "pill-stack": "Next.js · Node · PostgreSQL",
+          "summary-label": { attrs: { "aria-label": "Resumen" } },
+          "summary-title": "Resumen",
+          "summary-text":
+            "Me especializo en modelado de datos, optimización de consultas y arquitectura de servicios. Me gusta la ingeniería pragmática: claridad, documentación y ejecución sólida.",
+          "about-title": "Sobre mí",
+          "about-text":
+            "Ingeniero de software con experiencia construyendo sistemas en producción, desde monolitos hasta microservicios. Especializado en <strong>multi-tenant</strong>, <strong>búsqueda eficiente</strong>, <strong>offline-first</strong> y <strong>performance</strong>.",
+          "workhow-title": "Cómo trabajo",
+          "workhow-text":
+            "Prefiero sistemas entendibles a soluciones “mágicas”. Diseño con intención: dominio claro, contratos estables, índices correctos, y despliegues repetibles. La IA es una herramienta, no un reemplazo del criterio.",
+          "workseek-title": "Qué busco",
+          "workseek-text":
+            "Proyectos donde la arquitectura y los datos importen: productos con trazabilidad, performance real, sincronización, o equipos que necesiten orden técnico para escalar sin romperse.",
+          "work-title": "Lo que hago",
+          "work-text":
+            "Áreas donde aporto más valor: decisiones técnicas, datos y ejecución en producción.",
+          "card-arch-title": "Arquitectura & Backend",
+          "card-arch-text":
+            "APIs, microservicios, gateways, autenticación, diseño orientado a dominio y decisiones que escalan.",
+          "card-data-title": "Datos & Performance",
+          "card-data-text":
+            "PostgreSQL/MariaDB/SQLite, índices, optimización de queries, búsqueda full-text y migraciones seguras.",
+          "card-frontend-title": "Frontend aplicado",
+          "card-frontend-text":
+            "Next.js/React para productos reales: SSR/estático, UI pragmática, herramientas internas y flujos claros.",
+          "card-devops-title": "DevOps pragmático",
+          "card-devops-text":
+            "Docker, Kubernetes, PM2, jobs/colas y despliegues simples con observabilidad suficiente.",
+          "stack-title": "Stack habitual",
+          "projects-title": "Proyectos personales",
+          "projects-text":
+            "Proyectos propios con demo en producción, enfocados en experiencia de usuario, estructura de datos y ejecución real.",
+          "egresos-title": "egresos-app",
+          "egresos-text":
+            "Aplicación para control de egresos personales, enfocada en claridad visual, orden y estructura de datos.",
+          "pet-title": "pet-game",
+          "pet-text":
+            "Juego experimental con mecánicas simples y progresión. Laboratorio de lógica de estado y feedback visual.",
+          "ponch-title": "Ponchister",
+          "ponch-text":
+            "Experiencia interactiva inspirada en juegos musicales. Enfoque en flujo, sincronización y experiencia multiplataforma.",
+          "tag-finanzas": "finanzas",
+          "tag-frontend": "frontend",
+          "tag-datos": "datos",
+          "tag-game": "game",
+          "tag-estado": "estado",
+          "tag-ux": "UX",
+          "tag-musica": "música",
+          "tag-interactivo": "interactivo",
+          "project-demo": "Demo →",
+          "project-repo": "Repo →",
+          "contact-title": "Contacto",
+          "contact-text":
+            "Si tienes un proyecto que necesita orden, performance y una arquitectura sana, feliz de ayudar.",
+          "contact-email": "Escríbeme",
+          "contact-linkedin": "LinkedIn",
+          "contact-github": "GitHub",
+          "footer-text":
+            "© <span id=\"year\"></span> Alfonso Moreno · Hecho con HTML/CSS — sin frameworks.",
+          "aria-egresos-open": {
+            attrs: { "aria-label": "Abrir imagen egresos-app" },
+          },
+          "aria-pet-open": {
+            attrs: { "aria-label": "Abrir imagen pet-game" },
+          },
+          "aria-ponch-open": {
+            attrs: { "aria-label": "Abrir imagen Ponchister" },
+          },
+          "dlg-egresos-label": {
+            attrs: { "aria-label": "Vista ampliada egresos-app" },
+          },
+          "dlg-pet-label": {
+            attrs: { "aria-label": "Vista ampliada pet-game" },
+          },
+          "dlg-ponch-label": {
+            attrs: { "aria-label": "Vista ampliada ponchister" },
+          },
+          "dlg-close": { attrs: { "aria-label": "Cerrar" } },
+        },
+        en: {
+          "skip-link": "Skip to content",
+          "brand-label": { attrs: { "aria-label": "Home" } },
+          "nav-label": { attrs: { "aria-label": "Main navigation" } },
+          "nav-about": "About",
+          "nav-work": "What I do",
+          "nav-projects": "Projects",
+          "nav-contact": "Contact",
+          "lang-select-label": { attrs: { "aria-label": "Choose language" } },
+          "theme-btn": { attrs: { "aria-label": "Toggle theme" } },
+          "theme-text": "Theme",
+          "hero-eyebrow":
+            "Software Engineer · Backend Architecture · Distributed Systems",
+          "hero-title":
+            "I build real software: scalable, maintainable, and fast.",
+          "hero-subtitle":
+            "Focused on <strong>data</strong>, <strong>performance</strong>, <strong>multi-tenant</strong>, and <strong>offline-first</strong> decisions that stand the test of time.",
+          "cta-github": "GitHub",
+          "cta-linkedin": "LinkedIn",
+          "cta-email": "Email me",
+          "pill-location": "Chile (remote)",
+          "pill-role": "Backend · Data · DevOps",
+          "pill-stack": "Next.js · Node · PostgreSQL",
+          "summary-label": { attrs: { "aria-label": "Summary" } },
+          "summary-title": "Summary",
+          "summary-text":
+            "I specialize in data modeling, query optimization, and service architecture. Pragmatic engineering: clarity, documentation, and solid execution.",
+          "about-title": "About me",
+          "about-text":
+            "Software engineer with experience building production systems, from monoliths to microservices. Specialized in <strong>multi-tenant</strong>, <strong>efficient search</strong>, <strong>offline-first</strong>, and <strong>performance</strong>.",
+          "workhow-title": "How I work",
+          "workhow-text":
+            "I prefer understandable systems over “magic” solutions. I design with intent: clear domains, stable contracts, proper indexes, and repeatable deployments. AI is a tool, not a replacement for judgment.",
+          "workseek-title": "What I look for",
+          "workseek-text":
+            "Projects where architecture and data matter: products with traceability, real performance, sync, or teams that need technical order to scale without breaking.",
+          "work-title": "What I do",
+          "work-text":
+            "Where I add the most value: technical decisions, data, and production execution.",
+          "card-arch-title": "Architecture & Backend",
+          "card-arch-text":
+            "APIs, microservices, gateways, authentication, domain-driven design, and decisions that scale.",
+          "card-data-title": "Data & Performance",
+          "card-data-text":
+            "PostgreSQL/MariaDB/SQLite, indexes, query optimization, full-text search, and safe migrations.",
+          "card-frontend-title": "Practical frontend",
+          "card-frontend-text":
+            "Next.js/React for real products: SSR/static, pragmatic UI, internal tools, and clear flows.",
+          "card-devops-title": "Pragmatic DevOps",
+          "card-devops-text":
+            "Docker, Kubernetes, PM2, jobs/queues, and simple deployments with enough observability.",
+          "stack-title": "Usual stack",
+          "projects-title": "Personal projects",
+          "projects-text":
+            "Personal projects with live demos, focused on UX, data structure, and real execution.",
+          "egresos-title": "egresos-app",
+          "egresos-text":
+            "Personal expense tracker focused on clarity, order, and data structure.",
+          "pet-title": "pet-game",
+          "pet-text":
+            "Experimental game with simple mechanics and progression. A playground for state logic and visual feedback.",
+          "ponch-title": "Ponchister",
+          "ponch-text":
+            "Interactive experience inspired by rhythm games. Focus on flow, sync, and multiplatform experience.",
+          "tag-finanzas": "finance",
+          "tag-frontend": "frontend",
+          "tag-datos": "data",
+          "tag-game": "game",
+          "tag-estado": "state",
+          "tag-ux": "UX",
+          "tag-musica": "music",
+          "tag-interactivo": "interactive",
+          "project-demo": "Live →",
+          "project-repo": "Code →",
+          "contact-title": "Contact",
+          "contact-text":
+            "If you have a project that needs order, performance, and healthy architecture, happy to help.",
+          "contact-email": "Email me",
+          "contact-linkedin": "LinkedIn",
+          "contact-github": "GitHub",
+          "footer-text":
+            "© <span id=\"year\"></span> Alfonso Moreno · Built with HTML/CSS — no frameworks.",
+          "aria-egresos-open": {
+            attrs: { "aria-label": "Open egresos-app image" },
+          },
+          "aria-pet-open": {
+            attrs: { "aria-label": "Open pet-game image" },
+          },
+          "aria-ponch-open": {
+            attrs: { "aria-label": "Open Ponchister image" },
+          },
+          "dlg-egresos-label": {
+            attrs: { "aria-label": "Expanded view egresos-app" },
+          },
+          "dlg-pet-label": {
+            attrs: { "aria-label": "Expanded view pet-game" },
+          },
+          "dlg-ponch-label": {
+            attrs: { "aria-label": "Expanded view Ponchister" },
+          },
+          "dlg-close": { attrs: { "aria-label": "Close" } },
+        },
+      };
+
+      const supportedLangs = ["es", "en"];
+      const langSelect = document.getElementById("langSelect");
+
+      const setYear = () => {
+        const yearEl = document.getElementById("year");
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+      };
+
+      const applyTranslations = (lang) => {
+        const dict = translations[lang] || translations.es;
+        document.documentElement.lang = lang;
+
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.dataset.i18n;
+          const entry = dict[key];
+          if (!entry) return;
+
+          if (typeof entry === "string") {
+            el.innerHTML = entry;
+          } else {
+            if (entry.text !== undefined) el.innerHTML = entry.text;
+            if (entry.attrs) {
+              Object.entries(entry.attrs).forEach(([attr, value]) => {
+                el.setAttribute(attr, value);
+              });
+            }
+          }
+        });
+
+        setYear();
+      };
+
+      const storedLang = localStorage.getItem("lang");
+      const initialLang = supportedLangs.includes(storedLang)
+        ? storedLang
+        : "es";
+
+      applyTranslations(initialLang);
+
+      if (langSelect) {
+        langSelect.value = initialLang;
+        langSelect.addEventListener("change", (event) => {
+          const selected = event.target.value;
+          const next = supportedLangs.includes(selected) ? selected : "es";
+          applyTranslations(next);
+          localStorage.setItem("lang", next);
+        });
+      }
 
       // Theme toggle
-      const btn = document.getElementById("themeBtn");
-      btn.addEventListener("click", () => {
+      const themeBtn = document.getElementById("themeBtn");
+      themeBtn.addEventListener("click", () => {
         const current = document.documentElement.dataset.theme;
         const next = current === "light" ? "dark" : "light";
         if (next === "light") document.documentElement.dataset.theme = "light";
@@ -493,8 +800,15 @@
       id="dlg-egresos-app"
       class="dlg"
       aria-label="Vista ampliada egresos-app"
+      data-i18n="dlg-egresos-label"
     >
-      <button class="dlg__close" type="button" data-close aria-label="Cerrar">
+      <button
+        class="dlg__close"
+        type="button"
+        data-close
+        aria-label="Cerrar"
+        data-i18n="dlg-close"
+      >
         ✕
       </button>
       <img
@@ -503,8 +817,19 @@
       />
     </dialog>
 
-    <dialog id="dlg-pet-game" class="dlg" aria-label="Vista ampliada pet-game">
-      <button class="dlg__close" type="button" data-close aria-label="Cerrar">
+    <dialog
+      id="dlg-pet-game"
+      class="dlg"
+      aria-label="Vista ampliada pet-game"
+      data-i18n="dlg-pet-label"
+    >
+      <button
+        class="dlg__close"
+        type="button"
+        data-close
+        aria-label="Cerrar"
+        data-i18n="dlg-close"
+      >
         ✕
       </button>
       <img
@@ -517,8 +842,15 @@
       id="dlg-ponchister"
       class="dlg"
       aria-label="Vista ampliada ponchister"
+      data-i18n="dlg-ponch-label"
     >
-      <button class="dlg__close" type="button" data-close aria-label="Cerrar">
+      <button
+        class="dlg__close"
+        type="button"
+        data-close
+        aria-label="Cerrar"
+        data-i18n="dlg-close"
+      >
         ✕
       </button>
       <img

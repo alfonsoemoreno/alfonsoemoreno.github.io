@@ -134,6 +134,10 @@ strong {
   justify-content: flex-end;
 }
 
+.nav-backdrop {
+  display: none;
+}
+
 .nav a {
   color: var(--muted);
   padding: 8px 10px;
@@ -160,7 +164,7 @@ strong {
 }
 
 .nav-toggle__icon {
-  width: 18px;
+  width: 20px;
   height: 2px;
   background: currentColor;
   position: relative;
@@ -172,18 +176,18 @@ strong {
   content: "";
   position: absolute;
   left: 0;
-  width: 18px;
+  width: 20px;
   height: 2px;
   background: currentColor;
   transition: transform 0.2s ease, top 0.2s ease;
 }
 
 .nav-toggle__icon::before {
-  top: -6px;
+  top: -7px;
 }
 
 .nav-toggle__icon::after {
-  top: 6px;
+  top: 7px;
 }
 
 .nav-toggle.is-active .nav-toggle__icon {
@@ -200,11 +204,6 @@ strong {
   transform: rotate(-45deg);
 }
 
-.nav--open + .nav-backdrop,
-.nav-backdrop.is-active {
-  display: block;
-}
-
 .nav-backdrop {
   display: none;
   position: fixed;
@@ -212,14 +211,32 @@ strong {
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
   z-index: 30;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.nav--open + .nav-backdrop,
+.nav-backdrop.is-active {
+  display: block;
+  pointer-events: auto;
+  opacity: 1;
 }
 
 .nav--open {
   display: flex;
 }
 
+:root[data-theme="light"] .nav-backdrop {
+  background: rgba(0, 0, 0, 0.35);
+}
+
 body.nav-open {
   overflow: hidden;
+}
+
+:root[data-theme="light"] .nav-toggle {
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .lang-select {
@@ -489,6 +506,25 @@ body.nav-open {
   font-size: 13px;
 }
 
+@media (min-width: 981px) {
+  .nav-toggle {
+    display: none !important;
+  }
+  .nav {
+    position: static;
+    flex-direction: row;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+    border: 0;
+  }
+  .nav-backdrop {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+
 @media (max-width: 980px) {
   .hero__grid {
     grid-template-columns: 1fr;
@@ -553,6 +589,10 @@ body.nav-open {
   .grid--4 {
     grid-template-columns: 1fr;
   }
+}
+
+.nav-backdrop {
+  display: none;
 }
 
 .project-links {

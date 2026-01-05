@@ -36,7 +36,7 @@
       <div class="container header__inner">
         <a class="brand" href="#top" aria-label="Inicio">
           <span class="brand__dot"></span>
-          <span class="brand__text">Alfonso Moreno</span>
+          <span>Alfonso Moreno</span>
         </a>
 
         <nav class="nav" aria-label="Navegación principal">
@@ -51,7 +51,7 @@
             aria-label="Cambiar tema"
           >
             <span class="btn__icon" aria-hidden="true">◐</span>
-            <span class="btn__text">Tema</span>
+            <span>Tema</span>
           </button>
         </nav>
       </div>
@@ -61,7 +61,7 @@
       <section id="top" class="hero">
         <div class="container">
           <div class="hero__grid">
-            <div class="hero__content">
+            <div>
               <p class="eyebrow">
                 Software Engineer · Arquitectura Backend · Sistemas Distribuidos
               </p>
@@ -103,7 +103,7 @@
               </div>
             </div>
 
-            <aside class="hero__card" aria-label="Resumen">
+            <aside aria-label="Resumen">
               <div class="card">
                 <h2 class="card__title">Resumen</h2>
                 <p class="card__text">
@@ -253,9 +253,10 @@
           <div class="grid grid--3">
             <!-- egresos-app -->
             <article class="card project-card">
-              <a
-                href="#lb-egresos-app"
+              <button
                 class="project-thumb"
+                type="button"
+                data-open="dlg-egresos-app"
                 aria-label="Abrir imagen egresos-app"
               >
                 <div class="project-media">
@@ -266,7 +267,7 @@
                     class="project-image"
                   />
                 </div>
-              </a>
+              </button>
 
               <h3 class="card__title">egresos-app</h3>
               <p class="card__text">
@@ -299,9 +300,10 @@
 
             <!-- pet-game -->
             <article class="card project-card">
-              <a
-                href="#lb-pet-game"
+              <button
                 class="project-thumb"
+                type="button"
+                data-open="dlg-pet-game"
                 aria-label="Abrir imagen pet-game"
               >
                 <div class="project-media">
@@ -312,7 +314,7 @@
                     class="project-image"
                   />
                 </div>
-              </a>
+              </button>
 
               <h3 class="card__title">pet-game</h3>
               <p class="card__text">
@@ -345,9 +347,10 @@
 
             <!-- ponchister -->
             <article class="card project-card">
-              <a
-                href="#lb-ponchister"
+              <button
                 class="project-thumb"
+                type="button"
+                data-open="dlg-ponchister"
                 aria-label="Abrir imagen Ponchister"
               >
                 <div class="project-media">
@@ -358,7 +361,7 @@
                     class="project-image"
                   />
                 </div>
-              </a>
+              </button>
 
               <h3 class="card__title">Ponchister</h3>
               <p class="card__text">
@@ -449,63 +452,79 @@
         localStorage.setItem("theme", next);
       });
 
-      window.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          const isLightboxOpen = location.hash.startsWith("#lb-");
-          if (isLightboxOpen) location.hash = "#projects";
-        }
+      // Dialog lightbox (minimal)
+      const openButtons = document.querySelectorAll("[data-open]");
+      const closeButtons = document.querySelectorAll(
+        "dialog .dlg__close, dialog [data-close]"
+      );
+
+      openButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-open");
+          const dlg = document.getElementById(id);
+          if (dlg && typeof dlg.showModal === "function") dlg.showModal();
+        });
+      });
+
+      // Close on close button
+      closeButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const dlg = btn.closest("dialog");
+          if (dlg) dlg.close();
+        });
+      });
+
+      // Close when clicking outside content
+      document.querySelectorAll("dialog.dlg").forEach((dlg) => {
+        dlg.addEventListener("click", (e) => {
+          const rect = dlg.getBoundingClientRect();
+          const clickedInDialog =
+            e.clientX >= rect.left &&
+            e.clientX <= rect.right &&
+            e.clientY >= rect.top &&
+            e.clientY <= rect.bottom;
+
+          // If click is on backdrop area, close
+          if (!clickedInDialog) dlg.close();
+        });
       });
     </script>
-    <!-- Lightbox (CSS :target) -->
-    <div
-      id="lb-egresos-app"
-      class="lightbox"
+    <dialog
+      id="dlg-egresos-app"
+      class="dlg"
       aria-label="Vista ampliada egresos-app"
-      role="dialog"
-      aria-modal="true"
     >
-      <a class="lightbox__backdrop" href="#projects" aria-label="Cerrar"></a>
-      <div class="lightbox__content" role="document">
-        <a class="lightbox__close" href="#projects" aria-label="Cerrar">✕</a>
-        <img
-          src="./assets/projects/egresos-app.webp"
-          alt="egresos-app screenshot"
-        />
-      </div>
-    </div>
+      <button class="dlg__close" type="button" data-close aria-label="Cerrar">
+        ✕
+      </button>
+      <img
+        src="./assets/projects/egresos-app.webp"
+        alt="egresos-app screenshot"
+      />
+    </dialog>
 
-    <div
-      id="lb-pet-game"
-      class="lightbox"
-      aria-label="Vista ampliada pet-game"
-      role="dialog"
-      aria-modal="true"
-    >
-      <a class="lightbox__backdrop" href="#projects" aria-label="Cerrar"></a>
-      <div class="lightbox__content" role="document">
-        <a class="lightbox__close" href="#projects" aria-label="Cerrar">✕</a>
-        <img
-          src="./assets/projects/ositodeemilia.webp"
-          alt="pet-game screenshot"
-        />
-      </div>
-    </div>
+    <dialog id="dlg-pet-game" class="dlg" aria-label="Vista ampliada pet-game">
+      <button class="dlg__close" type="button" data-close aria-label="Cerrar">
+        ✕
+      </button>
+      <img
+        src="./assets/projects/ositodeemilia.webp"
+        alt="pet-game screenshot"
+      />
+    </dialog>
 
-    <div
-      id="lb-ponchister"
-      class="lightbox"
+    <dialog
+      id="dlg-ponchister"
+      class="dlg"
       aria-label="Vista ampliada ponchister"
-      role="dialog"
-      aria-modal="true"
     >
-      <a class="lightbox__backdrop" href="#projects" aria-label="Cerrar"></a>
-      <div class="lightbox__content" role="document">
-        <a class="lightbox__close" href="#projects" aria-label="Cerrar">✕</a>
-        <img
-          src="./assets/projects/ponchister.webp"
-          alt="Ponchister screenshot"
-        />
-      </div>
-    </div>
+      <button class="dlg__close" type="button" data-close aria-label="Cerrar">
+        ✕
+      </button>
+      <img
+        src="./assets/projects/ponchister.webp"
+        alt="Ponchister screenshot"
+      />
+    </dialog>
   </body>
 </html>

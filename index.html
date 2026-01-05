@@ -867,7 +867,7 @@
           setNavState(!isOpen);
         });
 
-        nav.querySelectorAll("a, button, select").forEach((item) => {
+        nav.querySelectorAll("a").forEach((item) => {
           item.addEventListener("click", () => setNavState(false));
         });
       }
